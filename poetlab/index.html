@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>장면묘사 연습장</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0e0e0e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="장면묘사">
+<link rel="apple-touch-icon" href="image-192x192.png">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -1279,6 +1285,11 @@ function setStage(n) {
   document.getElementById('feedback-section').classList.remove('visible');
   updateCharCount();
   checkViolations();
+}
+
+// ── 서비스 워커 등록 ─────────────────────────────
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js');
 }
 
 // ── 시작 ─────────────────────────────────────────
